@@ -16,6 +16,20 @@ export const surveyReducer = (state: surveyState, action: SurveyAction) => {
       return { ...state, hasLicense: action.payload };
     case "UPDATE_FIRST_CAR":
       return { ...state, isFirstCar: action.payload };
+    case "UPDATE_DRIVETRAIN":
+      return { ...state, drivetrain: action.payload };
+    case "UPDATE_FUEL_EMI":
+      return { ...state, fuelEmissionsConcern: action.payload };
+    case "UPDATE_FAMILY_CARS":
+      return { ...state, familyCars: action.payload };
+    case "UPDATE_CAR_MAKE":
+      const updateDataCarMake = [...state.carMake];
+      updateDataCarMake[action.index] = action.payload;
+      return { ...state, carMake: updateDataCarMake };
+    case "UPDATE_CAR_MODEL":
+      const updateDataCarModel = [...state.carModel];
+      updateDataCarModel[action.index] = action.payload;
+      return { ...state, carModel: updateDataCarModel };
     default:
       return state;
   }

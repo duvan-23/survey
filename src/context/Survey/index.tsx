@@ -13,8 +13,8 @@ const SurveyProvider:React.FC<ISurveyProviderProps> = ({ children })=>{
         drivetrain: '',
         fuelEmissionsConcern: '',
         familyCars: '',
-        carMake: [""],
-        carModel: [""],
+        carMake: [''],
+        carModel: [''],
     }
     const [state, dispatch] = useReducer(surveyReducer, initialState);
 

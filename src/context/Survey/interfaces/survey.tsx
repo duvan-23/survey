@@ -20,6 +20,11 @@ export type SurveyAction =
   | { type: "UPDATE_AGE"; payload: string }
   | { type: "UPDATE_HAS_LICENSE"; payload: string }
   | { type: "UPDATE_FIRST_CAR"; payload: string }
+  | { type: "UPDATE_DRIVETRAIN"; payload: string }
+  | { type: "UPDATE_FUEL_EMI"; payload: string }
+  | { type: "UPDATE_FAMILY_CARS"; payload: string }
+  | { type: "UPDATE_CAR_MAKE"; payload: string, index:number }
+  | { type: "UPDATE_CAR_MODEL"; payload: string, index:number }
   | { type: "UPDATE_GENDER"; payload: string };
 
 export interface ISurveyContextType {
@@ -27,7 +32,7 @@ export interface ISurveyContextType {
     dispatch: React.Dispatch<SurveyAction>;
 }
 
-export type StepNames = "step1" | "step2" | "submit";
+export type StepNames = "step1" | "step2" | "step3" | "step4" | "submit";
 
 export interface StateMachineConfig <StateType, StepNames extends string>{
     initialStep: StepNames,
