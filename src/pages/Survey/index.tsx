@@ -21,10 +21,13 @@ const Survey: React.FC = () => {
 
   const handleNext = () => {
     const canAdvance = stateMachineConifg.steps[currentStep].canAdvance(state);
+    console.log(state)
     if (canAdvance.next) {
       setMandatoryFields(false);
       if (currentStep === "step1") setCurrentStep("step2");
-      else if (currentStep === "step2") setCurrentStep("submit");
+      else if (currentStep === "step2") setCurrentStep("step3");
+      else if (currentStep === "step3") setCurrentStep("step4");
+      else if (currentStep === "step4") setCurrentStep("submit");
     } else if(canAdvance.modal.open) {
       setMandatoryFields(false); 
       setModal({open:true, text:canAdvance.modal.text});
@@ -61,9 +64,9 @@ const Survey: React.FC = () => {
               <h2 className="text-3xl font-semibold text-gray-800 text-center mb-6 italic shadow-sm">
                 Automotive Sales Customer Survey
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-                <StepComponent state={state} dispatch={dispatch} />
-              </div>
+
+              <StepComponent state={state} dispatch={dispatch} />
+
               <div>
                 {mandatoryFields&&(
                     <h3 className="text-red-500">Fields marked with * are required</h3>

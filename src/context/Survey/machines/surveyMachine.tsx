@@ -1,12 +1,12 @@
-import { RadioOption } from "../../../components/RadioOption";
-import { SelectOption } from "../../../components/SelectOption";
 import {
   StateMachineConfig,
   StepNames,
-  SurveyAction,
   surveyState,
 } from "../interfaces/survey";
-import { carMakes, gender } from "../Options";
+import { Step1 } from "./components/step1";
+import { Step2 } from "./components/step2";
+import { Step3 } from "./components/step3";
+import { Step4 } from "./components/step4";
 
 export const stateMachineConifg: StateMachineConfig<surveyState, StepNames> = {
   initialStep: "step1",
@@ -50,6 +50,26 @@ export const stateMachineConifg: StateMachineConfig<surveyState, StepNames> = {
         return response;
       },
     },
+    step3: {
+      canAdvance: (state) => {
+        let response = { next: false, modal: { open: false, text: "" } };
+        if (state.drivetrain !== "" && state.fuelEmissionsConcern !== "") {
+          response = { next: true, modal: { open: false, text: "" } };
+        }
+        return response;
+      },
+    },
+    step4: {
+      canAdvance: (state) => {
+        let response = { next: false, modal: { open: false, text: "" } };
+        const hasInvalidCarMake =  state.carMake.some(item => item === "" || item === undefined || item === null);
+        const hasInvalidCarModel =  state.carModel.some(item => item === "" || item === undefined || item === null);
+        if (state.familyCars !== "" && !hasInvalidCarMake && state.carMake.length === +state.familyCars && !hasInvalidCarModel && state.carModel.length === +state.familyCars) {
+          response = { next: true, modal: { open: false, text: "" } };
+        }
+        return response;
+      },
+    },
     submit: {
       canAdvance: () => ({
         next: false,
@@ -59,79 +79,18 @@ export const stateMachineConifg: StateMachineConfig<surveyState, StepNames> = {
   },
   views: {
     step1: ({ state, dispatch }) => (
-      <>
-        <div className="mb-1 w-full">
-          <label className="block text-base font-semibold text-gray-900">
-            Age *
-          </label>
-          <input
-            type="text"
-            name="age"
-            min={1}
-            value={state?.age}
-            onChange={(e) =>
-              dispatch({ type: "UPDATE_AGE", payload: e.target.value })
-            }
-            className="mt-1 block w-full p-2.5 border border-gray-300
-                            rounded-md shadow-sm focus:outline-none focus:border-blue-500
-                            bg-gray-300 transition duration-200"
-            required
-            autoComplete="off"
-          />
-        </div>
-        <div className="mb-1 w-full">
-          <SelectOption
-            data={gender}
-            input={{
-              label: "Gender *",
-              name: "gender",
-              value: state.gender,
-            }}
-            onChange={(e: any) =>
-              dispatch({ type: "UPDATE_GENDER", payload: e.target.value })
-            }
-          />
-        </div>
-        <div className="mb-1 w-full">
-          <RadioOption
-            data={[
-              { label: "YES", key: "true" },
-              {
-                label: "No, I prefer using other transport",
-                key: "false",
-              },
-            ]}
-            input={{
-              label: "Do you own a car driving license? *",
-              name: "hasLicense",
-            }}
-            onChange={(e: any) =>
-              dispatch({ type: "UPDATE_HAS_LICENSE", payload: e.target.value })
-            }
-          />
-        </div>
-      </>
+      <Step1 state={state} dispatch={dispatch} />
     ),
-    step2: ({ state, dispatch }) => (
-      <>
-        <div className="mb-1 w-full">
-          <RadioOption
-            data={[
-              { label: "YES", key: "true" },
-              { label: "NO", key: "false" },
-            ]}
-            input={{
-              label: "Is this your first car? *",
-              name: "isFirstCar",
-            }}
-            onChange={(e) =>
-              dispatch({ type: "UPDATE_FIRST_CAR", payload: e.target.value })
-            }
-          />
-        </div>
-      </>
+    step2: ({ dispatch }) => (
+      <Step2  dispatch={dispatch}/>
     ),
-    submit: ({ state, dispatch }) => (
+    step3: ({ dispatch }) => (
+      <Step3 dispatch={dispatch}/>
+    ),
+    step4: ({ state, dispatch }) => (
+      <Step4 state={state} dispatch={dispatch} />
+    ),
+    submit: ({ state }) => (
       <div>
         <p>
           {state.age} is {state.carMake} years old.
