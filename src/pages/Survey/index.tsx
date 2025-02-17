@@ -52,7 +52,7 @@ const Survey: React.FC = () => {
                   onClick={handleNext}
                   className="mt-5 px-6 py-3 rounded-2xl text-white font-semibold text-lg transition-all duration-300 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-indigo-600 hover:to-blue-500 shadow-lg hover:shadow-xl cursor-pointer hover:scale-105"
                 >
-                  {currentStep === "submit" ? "Submit" : "Next →"}
+                  {currentStep === "step4" ? "Submit" : "Next →"}
                 </button>
               </div>
             </div>

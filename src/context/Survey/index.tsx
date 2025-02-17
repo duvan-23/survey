@@ -37,7 +37,6 @@ const SurveyProvider:React.FC<ISurveyProviderProps> = ({ children })=>{
             if (currentStep === "step1") setCurrentStep("step2");
             else if (currentStep === "step2") setCurrentStep("step3");
             else if (currentStep === "step3") setCurrentStep("step4");
-            else if (currentStep === "step4") setCurrentStep("submit");
         } else if(canAdvance.modal.open) {
             setMandatoryFields(false); 
             addData(state);

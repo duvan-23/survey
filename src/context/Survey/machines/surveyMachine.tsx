@@ -65,16 +65,10 @@ export const stateMachineConifg: IStateMachineConfig<surveyState, StepNames> = {
         const hasInvalidCarMake =  state.carMake.some(item => item === "" || item === undefined || item === null);
         const hasInvalidCarModel =  state.carModel.some(item => item === "" || item === undefined || item === null);
         if (state.familyCars !== "" && !hasInvalidCarMake && state.carMake.length === +state.familyCars && !hasInvalidCarModel && state.carModel.length === +state.familyCars) {
-          response = { next: true, modal: { open: false, text: "" } };
+          response = { next: false, modal: { open: true, text: "Thanks for answering the survey" } };
         }
         return response;
       },
-    },
-    submit: {
-      canAdvance: () => ({
-        next: false,
-        modal: { open: true, text: "Thanks for answering the survey" },
-      }),
     },
   },
   views: {
@@ -89,13 +83,6 @@ export const stateMachineConifg: IStateMachineConfig<surveyState, StepNames> = {
     ),
     step4: ({ state, dispatch }) => (
       <Step4 state={state} dispatch={dispatch} />
-    ),
-    submit: ({ state }) => (
-      <div>
-        <p>
-          {state.age} is {state.carMake} years old.
-        </p>
-      </div>
-    ),
+    )
   },
 };

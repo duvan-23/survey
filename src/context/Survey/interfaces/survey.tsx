@@ -37,7 +37,7 @@ export interface ISurveyContextType {
     modal: {open:boolean, text:string};
 }
 
-export type StepNames = "step1" | "step2" | "step3" | "step4" | "submit";
+export type StepNames = "step1" | "step2" | "step3" | "step4" ;
 
 export interface IStateMachineConfig <StateType, StepNames extends string>{
     initialStep: StepNames,
