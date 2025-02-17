@@ -3,8 +3,8 @@ import { SurveyAction } from "../../../interfaces/survey";
 
 const Step2: React.FC<{ dispatch:React.Dispatch<SurveyAction>}> = ({dispatch}) =>{
     return(
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-        <div className="mb-1 w-full">
+      <div className="flex justify-center items-center ">
+        <div className="my-2 ">
           <RadioOption
             data={[
               { label: "YES", key: "true" },
