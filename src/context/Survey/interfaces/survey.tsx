@@ -30,11 +30,16 @@ export type SurveyAction =
 export interface ISurveyContextType {
     state: surveyState;
     dispatch: React.Dispatch<SurveyAction>;
+    handleNext:() => void;
+    StepComponent: React.ComponentType<{ state: surveyState; dispatch: React.Dispatch<SurveyAction>;}>;
+    mandatoryFields: boolean;
+    currentStep: StepNames;
+    modal: {open:boolean, text:string};
 }
 
 export type StepNames = "step1" | "step2" | "step3" | "step4" | "submit";
 
-export interface StateMachineConfig <StateType, StepNames extends string>{
+export interface IStateMachineConfig <StateType, StepNames extends string>{
     initialStep: StepNames,
     steps: {
         [key in StepNames] : {
@@ -50,7 +55,7 @@ export interface StateMachineConfig <StateType, StepNames extends string>{
 }
 
 export const getStepView = <T, V extends string>(
-    config: StateMachineConfig<T, V>,
+    config: IStateMachineConfig<T, V>,
     stepName: V
   ): React.ComponentType<{ state: T; dispatch: React.Dispatch<SurveyAction> }> =>
     config.views[stepName];

@@ -1,5 +1,5 @@
 import {
-  StateMachineConfig,
+  IStateMachineConfig,
   StepNames,
   surveyState,
 } from "../interfaces/survey";
@@ -8,7 +8,7 @@ import { Step2 } from "./components/step2";
 import { Step3 } from "./components/step3";
 import { Step4 } from "./components/step4";
 
-export const stateMachineConifg: StateMachineConfig<surveyState, StepNames> = {
+export const stateMachineConifg: IStateMachineConfig<surveyState, StepNames> = {
   initialStep: "step1",
   steps: {
     step1: {

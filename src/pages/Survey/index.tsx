@@ -1,45 +1,20 @@
-import { useState } from "react";
 import backgroundImage from "../../assets/background.webp";
 import fromImage from "../../assets/form.webp";
 import { useSurveyContext } from "../../context/Survey";
 import { Modal } from "../../components/Modal";
 import { MessageModal } from "../../components/MessageModal";
-import { useNavigate } from "react-router-dom";
-import { getStepView, StepNames } from "../../context/Survey/interfaces/survey";
-import { stateMachineConifg } from "../../context/Survey/machines/surveyMachine";
 
 const Survey: React.FC = () => {
-  const navigate = useNavigate();
-  const { state, dispatch } = useSurveyContext();
+  const { 
+    state, 
+    dispatch, 
+    handleNext, 
+    StepComponent,
+    mandatoryFields,
+    currentStep,
+    modal 
+  } = useSurveyContext();
 
-  const [currentStep, setCurrentStep] = useState<StepNames>(
-    stateMachineConifg.initialStep
-  );
-  const StepComponent = getStepView(stateMachineConifg, currentStep);
-  const [mandatoryFields, setMandatoryFields] = useState(false);
-  const [modal, setModal] = useState({open:false, text:""});
-
-  const handleNext = () => {
-    const canAdvance = stateMachineConifg.steps[currentStep].canAdvance(state);
-    console.log(state)
-    if (canAdvance.next) {
-      setMandatoryFields(false);
-      if (currentStep === "step1") setCurrentStep("step2");
-      else if (currentStep === "step2") setCurrentStep("step3");
-      else if (currentStep === "step3") setCurrentStep("step4");
-      else if (currentStep === "step4") setCurrentStep("submit");
-    } else if(canAdvance.modal.open) {
-      setMandatoryFields(false); 
-      setModal({open:true, text:canAdvance.modal.text});
-      setTimeout(() => {
-        setModal({open:false,text:""}); 
-        navigate('/');
-    }, 4000);
-    } else{
-        setMandatoryFields(true);
-    }
-  };
-  
   return (
     <div
       className="min-h-screen flex flex-col"
