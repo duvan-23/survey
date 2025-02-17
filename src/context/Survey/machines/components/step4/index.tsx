@@ -7,7 +7,7 @@ const Step4: React.FC<{state:surveyState, dispatch:React.Dispatch<SurveyAction>}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
         <div className="mb-1 w-[48%] col-span-2 col-start-1">
           <label className="block text-base font-semibold text-gray-900">
-            How many cars do you have in your family?
+            How many cars do you have in your family? *
           </label>
           <input
             type="number"
@@ -34,7 +34,7 @@ const Step4: React.FC<{state:surveyState, dispatch:React.Dispatch<SurveyAction>}
                     data={carMakes}
                     input={{
                       label:
-                        "Which car make and model do you drive?",
+                        "Which car make and model do you drive? *",
                       name: `carMake${i}`,
                       value: state.carMake[i],
                     }}
@@ -46,7 +46,7 @@ const Step4: React.FC<{state:surveyState, dispatch:React.Dispatch<SurveyAction>}
 
                 <div className="mb-1 w-full">
                   <label className="block text-base font-semibold text-gray-900">
-                    Model
+                    Model *
                   </label>
                   <input
                     type="text"

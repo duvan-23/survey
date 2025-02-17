@@ -12,7 +12,7 @@ const Step3: React.FC<{dispatch:React.Dispatch<SurveyAction>}> = ({ dispatch }) 
               { label: "I don’t know", key: "idk" },
             ]}
             input={{
-              label: "Which drivetrain do you prefer?",
+              label: "Which drivetrain do you prefer? *",
               name: "drivetrain",
             }}
             onChange={(e) =>
@@ -28,7 +28,7 @@ const Step3: React.FC<{dispatch:React.Dispatch<SurveyAction>}> = ({ dispatch }) 
               { label: "NO", key: "no" },
             ]}
             input={{
-              label: "Are you worried about fuel emissions?",
+              label: "Are you worried about fuel emissions? *",
               name: "fuelEmissionsConcern",
             }}
             onChange={(e) =>
