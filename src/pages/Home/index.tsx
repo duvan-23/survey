@@ -1,8 +1,8 @@
 import { FaClipboardList, FaUserAlt,   } from 'react-icons/fa'; 
 import React from "react";
 import { useHomeContext } from "../../context/Home/index";
-import logo from '../../assets/react.svg';
-import backgroundImage from '../../assets/background.webp';
+import logo from '../../assets/img/react.svg';
+import backgroundImage from '../../assets/img/background.webp';
 const Home: React.FC = ()=>{
 
   const {

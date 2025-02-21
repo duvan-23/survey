@@ -34,4 +34,4 @@ const useHomeContext = () => {
     }
     return context;
 };
-export { HomeContext, HomeProvider, useHomeContext }
+export { HomeProvider, useHomeContext }

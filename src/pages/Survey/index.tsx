@@ -1,8 +1,9 @@
-import backgroundImage from "../../assets/background.webp";
-import fromImage from "../../assets/form.webp";
+import backgroundImage from "../../assets/img/background.webp";
+import fromImage from "../../assets/img/form.webp";
 import { useSurveyContext } from "../../context/Survey";
 import { Modal } from "../../components/Modal";
 import { MessageModal } from "../../components/MessageModal";
+import { Nav } from "../../components/Nav";
 
 const Survey: React.FC = () => {
   const { 
@@ -25,7 +26,8 @@ const Survey: React.FC = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="flex flex-grow items-start justify-center pt-16 lg:pt-16  ">
+      <Nav />
+      <div className="flex flex-grow items-start justify-center pt-6 lg:pt-6  ">
         <div className="relative w-full lg:flex lg:w-11/12 shadow-2xl ">
           <div className="w-full lg:flex lg:w-[35%] h-auto bg-gradient-to-b from-emerald-400 to-blue-400 min-h-[80vh] rounded hidden items-center justify-center">
             <img
