@@ -22,7 +22,7 @@ const initialData = [
         hasLicense: "true",
         isFirstCar: "false",
         drivetrain: "rwd",
-        fuelEmissionsConcern: "false",
+        fuelEmissionsConcern: "no",
         familyCars: "2",
         carMake: [
             "Honda",
@@ -38,7 +38,7 @@ const initialData = [
         gender: "M",
         hasLicense: "true",
         isFirstCar: "false",
-        drivetrain: "idk",
+        drivetrain: "rwd",
         fuelEmissionsConcern: "yes",
         familyCars: "1",
         carMake: [
