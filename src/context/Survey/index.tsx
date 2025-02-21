@@ -25,7 +25,8 @@ const SurveyProvider:React.FC<ISurveyProviderProps> = ({ children })=>{
     const navigate = useNavigate();
     const [currentStep, setCurrentStep] = useState<StepNames>(
         stateMachineConifg.initialStep
-      );
+    );
+
     const StepComponent = getStepView(stateMachineConifg, currentStep);
     const [mandatoryFields, setMandatoryFields] = useState(false);
     const [modal, setModal] = useState({open:false, text:""});
@@ -44,7 +45,7 @@ const SurveyProvider:React.FC<ISurveyProviderProps> = ({ children })=>{
             setTimeout(() => {
                 setModal({open:false,text:""}); 
                 navigate('/');
-            }, 4000);
+            }, 2000);
         } else{
             setMandatoryFields(true);
     }
@@ -78,4 +79,4 @@ const useSurveyContext = () => {
     }
     return context;
 };
-export { SurveyContext, SurveyProvider, useSurveyContext }
+export { SurveyProvider, useSurveyContext }
