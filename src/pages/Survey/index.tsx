@@ -1,4 +1,4 @@
-import backgroundImage from "../../assets/img/background.webp";
+import backgroundImage from "../../../public/background.webp";
 import fromImage from "../../assets/img/form.webp";
 import { useSurveyContext } from "../../context/Survey";
 import { Modal } from "../../components/Modal";
@@ -29,14 +29,14 @@ const Survey: React.FC = () => {
       <Nav />
       <div className="flex flex-grow items-start justify-center pt-6 lg:pt-6  ">
         <div className="relative w-full lg:flex lg:w-11/12 shadow-2xl ">
-          <div className="w-full lg:flex lg:w-[35%] h-auto bg-gradient-to-b from-emerald-400 to-blue-400 min-h-[80vh] rounded hidden items-center justify-center">
+          <div className="w-full lg:flex lg:w-[35%] h-auto bg-gradient-to-b from-emerald-400 to-blue-400 min-h-[80vh] rounded-s-xl hidden items-center justify-center">
             <img
               src={fromImage}
               alt="Form image"
               className="w-10/12 h-auto rounded-lg shadow-2xl"
             />
           </div>
-          <div className="lg:w-[65%] w-full bg-gradient-to-b from-emerald-400 to-blue-400 flex items-center justify-center p-5 rounded">
+          <div className="lg:w-[65%] w-full bg-gradient-to-b from-emerald-400 to-blue-400 flex items-center justify-center p-5 rounded-r-xl">
             <div className="bg-white/20 shadow-xl rounded-lg p-5 w-full">
               <h2 className="text-3xl font-semibold text-gray-800 text-center mb-6 italic shadow-sm">
                 Automotive Sales Customer Survey

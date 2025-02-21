@@ -2,7 +2,7 @@ import React from "react";
 import { useStatisticsContext } from "../../context/Statistics";
 import ReactECharts from 'echarts-for-react';
 import { Nav } from "../../components/Nav";
-import backgroundImage from '../../assets/img/background.webp';
+import backgroundImage from '../../../public/background.webp';
 const Statistics: React.FC = ()=>{ 
   const { 
     ageChart,
@@ -55,7 +55,7 @@ const Statistics: React.FC = ()=>{
           </div>
 
           <div className="bg-[#1E214D] p-6 rounded-xl row-span-2 h-full flex flex-col">
-            <h2 className="text-lg font-semibold text-center">Customer Satisfaction</h2>
+            <h2 className="text-lg font-semibold text-center">Group representation</h2>
             <div className="flex-grow w-full min-h-[400px] mt-6">
               {groupRepresentationChart.series[0].name ==="" && (
                   <h3 className=" text-center text-red-500">No data yet</h3>

@@ -2,7 +2,7 @@ import { FaClipboardList, FaUserAlt,   } from 'react-icons/fa';
 import React from "react";
 import { useHomeContext } from "../../context/Home/index";
 import logo from '../../assets/img/react.svg';
-import backgroundImage from '../../assets/img/background.webp';
+import backgroundImage from '../../../public/background.webp';
 const Home: React.FC = ()=>{
 
   const {
@@ -34,7 +34,7 @@ const Home: React.FC = ()=>{
             to-blue-600 p-10 rounded-full mb-8">
             <FaClipboardList className="text-6xl" />
           </div>
-          <span className="text-3xl font-semibold">Customer</span>
+          <span className="text-3xl font-semibold">Survey</span>
         </div>
 
         <div 
@@ -47,7 +47,7 @@ const Home: React.FC = ()=>{
             from-purple-500 to-blue-600 p-10 rounded-full mb-8">
             <FaUserAlt className="text-6xl" />
           </div>
-          <span className="text-3xl font-semibold">User</span>
+          <span className="text-3xl font-semibold">Dashboard</span>
         </div>
 
       </div>
