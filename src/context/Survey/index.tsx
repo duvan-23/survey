@@ -4,6 +4,7 @@ import { surveyReducer } from "./Reducer/surveyReducer";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { stateMachineConifg } from "./machines/surveyMachine";
 import { useNavigate } from "react-router-dom";
+import { initialData } from "../../constants/dataSurvey";
 
 const SurveyContext = React.createContext<ISurveyContextType|null>(null);
 
@@ -20,7 +21,7 @@ const SurveyProvider:React.FC<ISurveyProviderProps> = ({ children })=>{
         carModel: [''],
     }
     const [state, dispatch] = useReducer(surveyReducer, initialState);
-    const {item:data, saveItem:saveData} = useLocalStorage('dataSurvey',[], false);
+    const {item:data, saveItem:saveData} = useLocalStorage('dataSurvey',initialData, false);
     
     const navigate = useNavigate();
     const [currentStep, setCurrentStep] = useState<StepNames>(

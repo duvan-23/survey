@@ -84,7 +84,7 @@ export const useDashboardData = () => {
         fuelPercentageDistribution: {value: +fuelPercentage() || 0},
         drivetrainPercentageDistribution: {value: +drivetrainPercentage()|| 0},
         carAverageDistribution: [
-            Array.from({ length: item.filter((i:surveyState) => i.familyCars !== "" ).length }, (v, i) => "F "+ (i + 1)),
+            Array.from({ length: item.filter((i:surveyState) => i.familyCars !== "" ).length }, (_, i) => "F "+ (i + 1)),
             item.filter((i:surveyState) => i.familyCars !== "").map((i:surveyState)=> +i.familyCars) ,
             "Cars",
             "Family"
