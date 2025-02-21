@@ -11,7 +11,7 @@ const Home: React.FC = ()=>{
 
   return(
     <div 
-      className="h-screen flex flex-col items-center justify-center"
+      className="min-h-screen flex flex-col items-center justify-center"
       style={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: 'cover',
@@ -19,11 +19,11 @@ const Home: React.FC = ()=>{
         backgroundRepeat: 'no-repeat',
       }}
     >
-      <div className="mb-10 flex items-center justify-center">
-        <img src={logo} alt="Logo" className="h-32 w-auto" />
+      <div className="mb-10 mt-5 md:mt-0 flex items-center justify-center">
+        <img src={logo} alt="Logo" className="h-24 sm:h-32 w-auto" />
       </div>
 
-      <div className="flex md:space-x-12 space-x-0 space-y-12 md:space-y-0 flex-col md:flex-row">
+      <div className="flex md:space-x-12 space-x-0 space-y-12 md:space-y-0 flex-col md:flex-row mb-6">
         <div 
           onClick={() => handleNavigate('/survey', ['user'])}
           className="cursor-pointer flex flex-col items-center bg-gradient-to-br 
